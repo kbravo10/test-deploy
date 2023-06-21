@@ -2,9 +2,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 function NavBar() {
   return (
-    <div class="navbar">
+    <div className="navbar">
       <NavLink to="/" exact>
-        Home
+      
+      </NavLink>
+      <NavLink to="/subscription">
+        Subscription
       </NavLink>
     </div>
   );
