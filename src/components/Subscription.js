@@ -1,5 +1,6 @@
 import React from "react";
 
+//returns card information based on object passed by prop
 function Subscription({ sub }) {
   return (
     <div>
