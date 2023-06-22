@@ -12,13 +12,15 @@ function Subscription({ sub, onChooseSubscription }) {
   }
   return (
     <div>
-      <button className="subCard" onClick={handleClick}>
+      <div>
+      <div className="ui cards">
         <div>
           <h3>{sub.type}</h3>
         </div>
         <img alt="oops" src={sub.logo} />
-      </button>
-      <Link to={`/subscription/${sub.type}-subscription`}>View sub</Link>
+      </div>
+      </div>
+      <Link to={`/subscription/${sub.id}-subscription`} onClick={handleClick}>View Subscription</Link>
     </div>
     
   );

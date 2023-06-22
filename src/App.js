@@ -8,10 +8,10 @@ import NavBar from "./components/NavBar";
 import SubInfo from "./components/SubInfo";
 
 function App() {
-  const [subId, setId] = useState("")
+  const [subId, setId] = useState("");
 
-  function getId(id){
-    setId(id)
+  function getId(id) {
+    setId(id);
   }
   return (
     <div className="App">
@@ -22,10 +22,10 @@ function App() {
           <Header />
         </Route>
         <Route exact path="/subscription">
-          <SubcriptionCollection getId={getId}/>
+          <SubcriptionCollection getId={getId} />
         </Route>
         <Route exact path={`/subscription/${subId}-subscription`}>
-          <SubInfo />
+          <SubInfo id={subId} />
         </Route>
       </Switch>
     </div>
