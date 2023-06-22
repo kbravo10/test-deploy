@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import { useRouteMatch } from "react-router-dom/cjs/react-router-dom";
-import { Route } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, Route } from "react-router-dom/cjs/react-router-dom.min";
 import SubInfo from "./SubInfo";
 
 //returns card information based on object passed by prop
 function Subscription({ sub, onChooseSubscription }) {
-  const [subId, setSubId] = useState("")
+  const [subId, setSubId] = useState("");
   const match = useRouteMatch();
 
-  function handleClick(){
-    console.log(sub)
-    console.log(sub.id)
-    setSubId(subId => subId = sub.id)
+  function handleClick() {
+    onChooseSubscription(sub.id);
   }
   return (
     <div>
@@ -21,10 +19,9 @@ function Subscription({ sub, onChooseSubscription }) {
         </div>
         <img alt="oops" src={sub.logo} />
       </button>
-      <Route path={`${match.url}/${subId}`} exact>
-        <SubInfo subscription={sub}/>
-      </Route>
+      <Link to={`/subscription/${sub.id}`}>View sub</Link>
     </div>
+    
   );
 }
 

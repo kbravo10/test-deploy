@@ -1,10 +1,11 @@
 import React from "react";
 
-function SubInfo({subscription}){
-     console.log(subscription)
+function SubInfo({id}){
+    //  console.log(subscription)
     return(
         <div className="subscriptionInfo">
-            <h1>{subscription.type}</h1>
+            {/* <h1>{subscription.type}</h1> */}
+            <p>{id}</p>
         </div>
     )
 }
