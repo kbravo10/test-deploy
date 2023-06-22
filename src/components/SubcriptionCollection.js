@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Subscription from "./Subscription";
 
-function SubcriptionCollection() {
+function SubcriptionCollection({getId}) {
   //useState that holds and sets the info of fetch data
   const [subdcriptions, setSubscriptions] = useState([]);
 
@@ -25,7 +25,7 @@ function SubcriptionCollection() {
             <Subscription
               key={index}
               sub={subscription}
-              onChooseSubscription={handleSub}
+              onChooseSubscription={getId}
             />
           </div>
         );

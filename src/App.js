@@ -1,5 +1,5 @@
 //import logo from "./logo.svg";
-import React from "react";
+import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import SubcriptionCollection from "./components/SubcriptionCollection";
@@ -8,6 +8,11 @@ import NavBar from "./components/NavBar";
 import SubInfo from "./components/SubInfo";
 
 function App() {
+  const [subId, setId] = useState("")
+
+  function getId(id){
+    setId(id)
+  }
   return (
     <div className="App">
       <h1>Welcome!</h1>
@@ -17,9 +22,9 @@ function App() {
           <Header />
         </Route>
         <Route exact path="/subscription">
-          <SubcriptionCollection />
+          <SubcriptionCollection getId={getId}/>
         </Route>
-        <Route exact path={"/subscription/Netflix-subscription"}>
+        <Route exact path={`/subscription/${subId}-subscription`}>
           <SubInfo />
         </Route>
       </Switch>
