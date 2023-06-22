@@ -5,6 +5,7 @@ import "./App.css";
 import SubcriptionCollection from "./components/SubcriptionCollection";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
+import SubInfo from "./components/SubInfo";
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         </Route>
         <Route exact path="/subscription">
           <SubcriptionCollection />
+        </Route>
+        <Route exact path={"/subscription/Netflix-subscription"}>
+          <SubInfo />
         </Route>
       </Switch>
     </div>

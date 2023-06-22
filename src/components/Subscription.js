@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useRouteMatch } from "react-router-dom/cjs/react-router-dom";
-import { Link, Route } from "react-router-dom/cjs/react-router-dom.min";
-import SubInfo from "./SubInfo";
+import { Link, Route } from "react-router-dom/cjs/react-router-dom.min"
 
 //returns card information based on object passed by prop
 function Subscription({ sub, onChooseSubscription }) {
@@ -19,7 +18,7 @@ function Subscription({ sub, onChooseSubscription }) {
         </div>
         <img alt="oops" src={sub.logo} />
       </button>
-      <Link to={`/subscription/${sub.id}`}>View sub</Link>
+      <Link to={`/subscription/${sub.type}-subscription`}>View sub</Link>
     </div>
     
   );
