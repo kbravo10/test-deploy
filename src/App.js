@@ -6,6 +6,7 @@ import SubcriptionCollection from "./components/SubcriptionCollection";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import SubInfo from "./components/SubInfo";
+import AddSubscription from "./components/AddSubscription";
 
 function App() {
   const [subId, setId] = useState("");
@@ -25,7 +26,10 @@ function App() {
           <SubcriptionCollection getId={getId} />
         </Route>
         <Route exact path={`/subscription/${subId}-subscription`}>
-          <SubInfo id={subId} />
+          <SubInfo />
+        </Route>
+        <Route exact path="/add-sunscription">
+          <AddSubscription />
         </Route>
       </Switch>
     </div>

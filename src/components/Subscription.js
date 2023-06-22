@@ -4,8 +4,9 @@ import { Link, Route } from "react-router-dom/cjs/react-router-dom.min"
 
 //returns card information based on object passed by prop
 function Subscription({ sub, onChooseSubscription }) {
-  const [subId, setSubId] = useState("");
-  const match = useRouteMatch();
+  // const [subId, setSubId] = useState("");
+  // const match = useRouteMatch();
+  // console.log(match)
 
   function handleClick() {
     onChooseSubscription(sub.id);

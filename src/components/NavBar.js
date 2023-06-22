@@ -10,6 +10,9 @@ function NavBar() {
       <NavLink to="/subscription">
         Subscription
       </NavLink>
+      <NavLink to="/add-sunscription">
+        Add Subscription
+      </NavLink>
     </div>
   );
 }
