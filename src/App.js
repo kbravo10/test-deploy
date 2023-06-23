@@ -8,8 +8,9 @@ import SubInfo from "./components/SubInfo";
 import AddSubscription from "./components/AddSubscription";
 
 function App() {
+  //set state for id to pass as prop to <SubInfo>
   const [subId, setId] = useState("");
-
+  //function sets id using setId passed from <SubcriptionCollection />
   function getId(id) {
     setId(id);
   }
@@ -25,7 +26,7 @@ function App() {
           <SubcriptionCollection getId={getId} />
         </Route>
         <Route exact path={`/subscription/${subId}-subscription`}>
-          <SubInfo />
+          <SubInfo id={subId} />
         </Route>
         <Route exact path="/add-sunscription">
           <AddSubscription />
