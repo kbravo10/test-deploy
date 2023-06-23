@@ -1,11 +1,14 @@
 //get the user input for a new subscription and add it to backend of project
 
 import React from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function AddSubscription() {
+
+    const history = useHistory();
   //handle the submit button and convert form into an object
   //insets information into backend db.json project and displays in DOM
-  function handleSubmit(event) {
+  function onHandleSubmit(event) {
     event.preventDefault();
     const submitForm = Object.fromEntries(new FormData(event.target).entries());
     fetch(`http://localhost:3100/subscriptions`, {
@@ -15,9 +18,11 @@ function AddSubscription() {
       },
       body: JSON.stringify(submitForm),
     }).then((res) => res.json());
+    alert(`${submitForm.type} has been added to your list!`)
+    history.push("/subscription")
   }
   return (
-    <form className="add-subscription" onSubmit={handleSubmit}>
+    <form className="add-subscription" onSubmit={onHandleSubmit}>
       <div className="type">
         <label>Name of Subscription: </label>
         <input type="text" name="type" placeholder="ex: Netflix ..."></input>
