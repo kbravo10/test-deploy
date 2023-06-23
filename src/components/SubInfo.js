@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-function SubInfo({id}) {
+function SubInfo({ id }) {
   //state that holds and sets the data from the fetch request to backend project
   const [subscrption, setSubscription] = useState([]);
   const history = useHistory();
-  
+
   //use fetch method to aquire the data
   //useEffect to only render once to prevent loop or multiple renders
   useEffect(() => {
@@ -15,17 +15,17 @@ function SubInfo({id}) {
   }, []);
 
   //Delete or cancel the desired subscription removing it from dom
-  function onHandleDelete(){
-    fetch(`http://localhost:3000/subscriptions/${subscrption.id}`,{
-        method:"DELETE",
-        headers:{
-            "Content-Type": "application/json"
-        }
-    }).then(res => res.json())
+  function onHandleDelete() {
+    fetch(`http://localhost:3000/subscriptions/${subscrption.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => res.json());
 
-    alert(`${subscrption.type} has been CANCELED!`)
-    
-    history.push("/subscription")
+    alert(`${subscrption.type} has been CANCELED!`);
+
+    history.push("/subscription");
   }
 
   // return subscription information
