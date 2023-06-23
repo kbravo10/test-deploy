@@ -12,7 +12,7 @@ function SubInfo({ id }) {
     fetch(`http://localhost:3000/subscriptions/${id}`)
       .then((res) => res.json())
       .then((data) => setSubscription((subscrption) => (subscrption = data)));
-  }, []);
+  });
 
   //Delete or cancel the desired subscription removing it from dom
   function onHandleDelete() {
