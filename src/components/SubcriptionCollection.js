@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Subscription from "./Subscription";
 
-function SubcriptionCollection({getId}) {
+function SubcriptionCollection({ getId }) {
   //useState that holds and sets the info of fetch data
   const [subdcriptions, setSubscriptions] = useState([]);
 
@@ -11,10 +11,6 @@ function SubcriptionCollection({getId}) {
       .then((res) => res.json())
       .then((data) => setSubscriptions(data));
   }, []);
-
-  function handleSub(){
-
-  }
 
   //returns a set of cards displayimg the information on subsciption
   return (
