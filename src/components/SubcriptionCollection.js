@@ -7,7 +7,7 @@ function SubcriptionCollection({getId}) {
 
   //useEffect that only renders once when the application loads and fetchges data from backend
   useEffect(() => {
-    fetch(`http://localhost:3100/subscriptions`)
+    fetch(`http://localhost:3000/subscriptions`)
       .then((res) => res.json())
       .then((data) => setSubscriptions(data));
   }, []);
