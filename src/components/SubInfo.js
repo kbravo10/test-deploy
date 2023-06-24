@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import "./main.css"
 
 function SubInfo({ id }) {
   //state that holds and sets the data from the fetch request to backend project
@@ -30,8 +31,8 @@ function SubInfo({ id }) {
 
   // return subscription information
   return (
-    <div className="c">
-      <img alt="none" src={subscrption.logo} />
+    <div className="infocard">
+      <img id="infoImg"alt="none" src={subscrption.logo} />
       <h2>{subscrption.type}</h2>
 
       <span className="meta">Price: {subscrption.price}</span>

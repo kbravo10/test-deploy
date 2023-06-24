@@ -8,6 +8,7 @@ import SubInfo from "./components/SubInfo";
 import AddSubscription from "./components/AddSubscription";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
+import "./components/main.css"
 
 function App() {
   //set state for id to pass as prop to <SubInfo>

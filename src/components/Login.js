@@ -1,9 +1,10 @@
 import React from "react";
+import "./main.css";
 
-function Login({onLogin}) {
+function Login({ onLogin }) {
   function handleChange() {}
-  function handleSubmit(){
-    onLogin(true)
+  function handleSubmit() {
+    onLogin(true);
   }
   return (
     <form className="login" onSubmit={handleSubmit}>
@@ -11,10 +12,10 @@ function Login({onLogin}) {
         <label>UserName:</label>
         <input type="text" name="username" onChange={handleChange}></input>
       </div>
-      <div className="password">
+      {/* <div className="password">
         <label>Password:</label>
         <input type="password" name="password" onChange={handleChange}></input>
-      </div>
+      </div> */}
       <div className="submit">
         <button type="submit">Login</button>
       </div>
