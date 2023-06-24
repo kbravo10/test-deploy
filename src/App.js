@@ -6,10 +6,21 @@ import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import SubInfo from "./components/SubInfo";
 import AddSubscription from "./components/AddSubscription";
+import Login from "./components/Login";
+import Logout from "./components/Logout";
 
 function App() {
   //set state for id to pass as prop to <SubInfo>
   const [subId, setId] = useState("");
+
+  const [isLogged, setIsLogged] = useState(false);
+  if (!isLogged) {
+    return <Login onLogin={setIsLogged} />;
+  }
+
+  function handleLogout(logeedOut){
+    setIsLogged(isLogged => isLogged = logeedOut)
+  }
   //function sets id using setId passed from <SubcriptionCollection />
   function getId(id) {
     setId(id);
@@ -30,6 +41,9 @@ function App() {
         </Route>
         <Route exact path="/add-sunscription">
           <AddSubscription />
+        </Route>
+        <Route to="/logout">
+          <Logout onLogin={handleLogout} />
         </Route>
       </Switch>
     </div>

@@ -12,14 +12,17 @@ const styles = {
 function NavBar() {
   return (
     <div className="navbar">
-      <NavLink to="/" exact style={styles}>
+      <NavLink to="/" exact className="navlink">
         Home
       </NavLink>
-      <NavLink to="/subscription" exact style={styles}>
+      <NavLink to="/subscription" exact className="navlink">
         Subscription
       </NavLink>
-      <NavLink to="/add-sunscription" style={styles}>
+      <NavLink to="/add-sunscription" className="navlink">
         Add Subscription
+      </NavLink>
+      <NavLink to="/logout" className="navlink">
+        Logout
       </NavLink>
     </div>
   );
