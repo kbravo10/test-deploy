@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Subscription from "./Subscription";
+import "./main.css"
 
 function SubcriptionCollection({ getId }) {
   //useState that holds and sets the info of fetch data

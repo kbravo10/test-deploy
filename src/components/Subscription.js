@@ -9,7 +9,7 @@ function Subscription({ sub, onChooseSubscription }) {
   return (
     <div>
       <div>
-        <div className="ui cards">
+        <div className="cards">
           <div>
             <h3>{sub.type}</h3>
           </div>
