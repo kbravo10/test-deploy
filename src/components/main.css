@@ -14,7 +14,7 @@ form.login{
   height: 35px;
   border: white;
   font-size: 20px;
-  background-color: #2E5984;
+  background-color: #1d3b58;
   color: white;
 }
 
@@ -53,11 +53,21 @@ div.infocard{
   width: 450px;
   background-color: aliceblue;
   font-size: 20px;
-
+  border: 20px solid black
 }
 img#infoImg{
   width: 400px;
   height: 200px;
   object-fit:scale-down;
   margin-top: 10px;
+}
+
+form.add-subscription{
+  font-size: 20px;
+  display: inline-block;
+  background-color: white;
+  height: 300px;
+  width: 600px;
+
+  margin-top: 200px;
 }
