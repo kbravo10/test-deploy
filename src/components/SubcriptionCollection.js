@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Subscription from "./Subscription";
-import "./main.css"
+import "./main.css";
 
-function SubcriptionCollection({ getId }) {
+function SubcriptionCollection() {
   //useState that holds and sets the info of fetch data
   const [subdcriptions, setSubscriptions] = useState([]);
 
@@ -12,18 +12,13 @@ function SubcriptionCollection({ getId }) {
       .then((res) => res.json())
       .then((data) => setSubscriptions(data));
   }, []);
-
   //returns a set of cards displayimg the information on subsciption
   return (
     <div className="cards">
       {subdcriptions.map((subscription, index) => {
         return (
           <div key={index}>
-            <Subscription
-              key={index}
-              sub={subscription}
-              onChooseSubscription={getId}
-            />
+            <Subscription key={index} sub={subscription} />
           </div>
         );
       })}

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import "./main.css"
+import "./main.css";
 
 function AddSubscription() {
   const history = useHistory();
@@ -22,25 +22,27 @@ function AddSubscription() {
     history.push("/subscription");
   }
   return (
-    <form className="add-subscription" onSubmit={onHandleSubmit}>
-      <div className="type">
-        <label>Name of Subscription: </label>
-        <input type="text" name="type" placeholder="ex: Netflix ..."></input>
-      </div>
-      <div className="price">
-        <label>Price of Subscription</label>
-        <input type="text" name="price" placeholder="ex: 9.99 ..."></input>
-      </div>
-      <div className="logo">
-        <label>Image of logo, if desired: </label>
-        <input
-          type="text"
-          name="logo"
-          placeholder=" insert image adress ..."
-        ></input>
-      </div>
-      <div className="submit">
-        <button type="submit">Submit</button>
+    <form className="add-subscription-form" onSubmit={onHandleSubmit}>
+      <div className="addSub">
+        <div className="type">
+          <label>Name of Subscription: </label>
+          <input type="text" name="type" placeholder="ex: Netflix ..."></input>
+        </div>
+        <div className="price">
+          <label>Price of Subscription</label>
+          <input type="text" name="price" placeholder="ex: 9.99 ..."></input>
+        </div>
+        <div className="logo">
+          <label>Image of logo, if desired: </label>
+          <input
+            type="text"
+            name="logo"
+            placeholder=" insert image adress ..."
+          ></input>
+        </div>
+        <div className="submit">
+          <button type="submit">Submit</button>
+        </div>
       </div>
     </form>
   );

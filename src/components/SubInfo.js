@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import "./main.css"
 
 function SubInfo({ id }) {
   //state that holds and sets the data from the fetch request to backend project
   const [subscrption, setSubscription] = useState([]);
   const history = useHistory();
+  const params = useParams()
+  console.log(params)
 
   //use fetch method to aquire the data
   //useEffect to only render once to prevent loop or multiple renders
   useEffect(() => {
-    fetch(`http://localhost:3000/subscriptions/${id}`)
+    fetch(`http://localhost:3000/subscriptions/${params.id}`)
       .then((res) => res.json())
       .then((data) => setSubscription((subscrption) => (subscrption = data)));
-  });
+  }, [params.id]);
 
   //Delete or cancel the desired subscription removing it from dom
   function onHandleDelete() {
