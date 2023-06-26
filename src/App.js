@@ -19,7 +19,7 @@ function App() {
   function handleLogout(logeedOut) {
     setIsLogged((isLogged) => (isLogged = logeedOut));
   }
-  
+
   //function sets id using setId passed from <SubcriptionCollection />
   function getId(id) {}
   return (
