@@ -1,15 +1,14 @@
 import React from "react";
 
 //returns the header displaying a message at the top of the page
-function Header() {
+function Home() {
   return (
     <div>
       <h2>
-        All you subscriptions in one easy place. Cancel, upgrade, and downgrade
-        here!
+        View all your subscriptions here!
       </h2>
     </div>
   );
 }
 
-export default Header;
+export default Home;

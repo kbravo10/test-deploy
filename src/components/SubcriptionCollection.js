@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Subscription from "./Subscription";
 import "./main.css";
+import UserMonth from "./UserMonth";
 
 function SubcriptionCollection() {
   //useState that holds and sets the info of fetch data
@@ -18,6 +19,7 @@ function SubcriptionCollection() {
   //returns a set of cards displayimg the information on subsciption
   return (
     <>
+      <UserMonth sub={subscriptions} />
       <div className="cards">
         {subscriptions.map((subscription, index) => {
           return (

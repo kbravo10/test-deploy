@@ -11,8 +11,9 @@ function AddSubscription() {
   function onHandleSubmit(event) {
     event.preventDefault();
     const submitForm = Object.fromEntries(new FormData(event.target).entries());
+    
     if (submitForm.type !== "" && submitForm.price !== "") {
-      
+      submitForm.price = parseFloat(submitForm.price)
 
       fetch(`http://localhost:3000/subscriptions`, {
         method: "POST",
@@ -34,7 +35,7 @@ function AddSubscription() {
         </div>
         <div className="price">
           <label>Price of Subscription</label>
-          <input type="text" name="price" placeholder="ex: 9.99 ..."></input>
+          <input type="number" min="0.01" step="0.01" name="price" placeholder="ex: 9.99 ..."></input>
         </div>
         <div className="logo">
           <label>Image of logo, if desired: </label>
