@@ -7,6 +7,8 @@ import "./main.css";
 
 function SubInfo() {
   //state that holds and sets the data from the fetch request to backend project
+  //add a useHistory variable to send the App where it needs to go after
+  //useParams to get the url and use it to find the id for the fetch
   const [subscrption, setSubscription] = useState([]);
   const history = useHistory();
   const params = useParams();
