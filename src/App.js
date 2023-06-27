@@ -14,11 +14,11 @@ function App() {
   //set a is logged in state to check if im logged in and display correct page
   //set name from login page and display at top for the welcome
   const [isLogged, setIsLogged] = useState(false);
-  const [name, setName] =useState("")
+  const [name, setName] = useState("");
 
   //check if logged in, if yes go to app page, if not display login page
   if (!isLogged) {
-    return <Login onLogin={setIsLogged} onGetName={getName}/>;
+    return <Login onLogin={setIsLogged} onGetName={getName} />;
   }
 
   // if the user logs out this finction will handle and set isLogged in to false
@@ -26,8 +26,8 @@ function App() {
     setIsLogged((isLogged) => (isLogged = logeedOut));
   }
 
-  //sets name for welcome display 
-  function getName(username){
+  //sets name for welcome display
+  function getName(username) {
     setName(username);
   }
 
