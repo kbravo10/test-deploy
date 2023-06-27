@@ -4,7 +4,7 @@ import "./main.css";
 
 function SubcriptionCollection() {
   //useState that holds and sets the info of fetch data
-  const [subdcriptions, setSubscriptions] = useState([]);
+  const [subscriptions, setSubscriptions] = useState([]);
 
   //useEffect that only renders once when the application loads and fetchges data from backend
   useEffect(() => {
@@ -15,7 +15,7 @@ function SubcriptionCollection() {
   //returns a set of cards displayimg the information on subsciption
   return (
     <div className="cards">
-      {subdcriptions.map((subscription, index) => {
+      {subscriptions.map((subscription, index) => {
         return (
           <div key={index}>
             <Subscription key={index} sub={subscription} />

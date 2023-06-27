@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
-import "./main.css"
+import {
+  useHistory,
+  useParams,
+} from "react-router-dom/cjs/react-router-dom.min";
+import "./main.css";
 
 function SubInfo() {
   //state that holds and sets the data from the fetch request to backend project
   const [subscrption, setSubscription] = useState([]);
   const history = useHistory();
-  const params = useParams()
-  
+  const params = useParams();
 
   //use fetch method to aquire the data
   //useEffect to only render once to prevent loop or multiple renders
@@ -34,7 +36,7 @@ function SubInfo() {
   // return subscription information
   return (
     <div className="infocard">
-      <img id="infoImg"alt="none" src={subscrption.logo} />
+      <img id="infoImg" alt="none" src={subscrption.logo} />
       <h2>{subscrption.type}</h2>
 
       <span className="meta">Price: {subscrption.price}</span>

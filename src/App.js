@@ -12,26 +12,30 @@ import "./components/main.css";
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
+  const [name, setName] =useState("")
   if (!isLogged) {
-    return <Login onLogin={setIsLogged} />;
+    return <Login onLogin={setIsLogged} onGetName={getName}/>;
   }
 
-  function handleLogout(logeedOut) {
+  function handleLogout(logeedOut, username) {
     setIsLogged((isLogged) => (isLogged = logeedOut));
+    setName(name => name = username)
   }
 
-  //function sets id using setId passed from <SubcriptionCollection />
-  function getId(id) {}
+  function getName(username){
+    setName(username);
+  }
+
   return (
     <div className="App">
-      <h1>Welcome!</h1>
+      <h1>Welcome {name}!</h1>
       <NavBar />
       <Switch>
         <Route exact path="/">
           <Header />
         </Route>
         <Route exact path="/subscription">
-          <SubcriptionCollection getId={getId} />
+          <SubcriptionCollection />
         </Route>
         <Route exact path={`/subscription/:id`}>
           <SubInfo />
