@@ -5,6 +5,11 @@ function UserMonth({ sub }) {
   sub.forEach((element) => {
     sum += element.price;
   });
-  return <span>{sum}</span>;
+  return (
+    <div className="monthly">
+      <p>TOTAL SPENT PER MONTH</p>
+      <p>$ {sum}</p>
+    </div>
+  );
 }
 export default UserMonth;

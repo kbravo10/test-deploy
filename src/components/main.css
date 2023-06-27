@@ -72,3 +72,13 @@ div.addSub {
   display: inline-block;
   margin-top: 30px;
 }
+
+div.monthly{
+  display: inline-block;
+  font-size: 20px;
+  color: whitesmoke;
+  background-color: rgba(216, 3, 3, 0.712);
+  width: 500px;
+  margin-top: 20px ;
+  margin-bottom: 20px;
+}

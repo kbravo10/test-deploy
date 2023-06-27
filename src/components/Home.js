@@ -4,9 +4,7 @@ import React from "react";
 function Home() {
   return (
     <div>
-      <h2>
-        View all your subscriptions here!
-      </h2>
+      <h2>View all your subscriptions here!</h2>
     </div>
   );
 }
