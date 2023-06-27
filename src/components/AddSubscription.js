@@ -11,14 +11,18 @@ function AddSubscription() {
   function onHandleSubmit(event) {
     event.preventDefault();
     const submitForm = Object.fromEntries(new FormData(event.target).entries());
-    fetch(`http://localhost:3000/subscriptions`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(submitForm),
-    }).then((res) => res.json());
-    alert(`${submitForm.type} has been added to your list!`);
+    if (submitForm.type !== "" && submitForm.price !== "") {
+      
+
+      fetch(`http://localhost:3000/subscriptions`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(submitForm),
+      }).then((res) => res.json());
+      alert(`${submitForm.type} has been added to your list!`);
+    } else alert("INAVLID INFORMATION....MUST HAVE NAME AND PRICE of SUBSCRIPTION");
     history.push("/subscription");
   }
   return (

@@ -10,19 +10,24 @@ function SubcriptionCollection() {
   useEffect(() => {
     fetch(`http://localhost:3000/subscriptions`)
       .then((res) => res.json())
-      .then((data) => setSubscriptions(data));
+      .then((data) => {
+        setSubscriptions((subscriptions) => (subscriptions = data));
+      });
   }, []);
+
   //returns a set of cards displayimg the information on subsciption
   return (
-    <div className="cards">
-      {subscriptions.map((subscription, index) => {
-        return (
-          <div key={index}>
-            <Subscription key={index} sub={subscription} />
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <div className="cards">
+        {subscriptions.map((subscription, index) => {
+          return (
+            <div key={index}>
+              <Subscription key={index} sub={subscription} />
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 }
 export default SubcriptionCollection;
