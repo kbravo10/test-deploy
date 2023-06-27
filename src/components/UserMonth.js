@@ -1,13 +1,17 @@
 import React from "react";
 
-function UserMonth({ sub }) {
+function UserMonth({ sub, filter }) {
   let sum = 0;
   sub.forEach((element) => {
     sum += element.price;
   });
+  function newFilter() {
+    const newText = filter.split("=")[1].toUpperCase();
+    return newText;
+  }
   return (
     <div className="monthly">
-      <p>TOTAL SPENT PER MONTH</p>
+      <p>Total spent per month on {filter === ""? "ALL" : newFilter()} subsciptions</p>
       <p>$ {sum}</p>
     </div>
   );
