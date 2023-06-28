@@ -11,7 +11,10 @@ function UserMonth({ sub, filter }) {
   }
   return (
     <div className="monthly">
-      <p>Total spent per month on {filter === ""? "ALL" : newFilter()} subsciptions</p>
+      <p>
+        Total spent per month on {filter === "" ? "ALL" : newFilter()}{" "}
+        subsciption(s)
+      </p>
       <p>$ {sum}</p>
     </div>
   );

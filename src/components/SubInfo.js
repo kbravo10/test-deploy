@@ -39,9 +39,9 @@ function SubInfo() {
   return (
     <div className="infocard">
       <img id="infoImg" alt="none" src={subscrption.logo} />
-      <h2>{subscrption.type}</h2>
-
-      <span className="meta">Price: {subscrption.price}</span>
+      <h1>{subscrption.type}</h1>
+      <p>Type: {subscrption.subscriptionType}</p>
+      <strong className="meta">Price: ${subscrption.price}</strong>
       <div className="delete">
         <button onClick={onHandleDelete}>Cancel Subscription</button>
       </div>

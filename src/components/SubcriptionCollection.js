@@ -27,7 +27,19 @@ function SubcriptionCollection() {
   }
 
   function onHandleSearch(event) {
-    console.log(event.target.value)
+    console.log(event.target.value);
+  }
+
+  function onHandleSubmit(event) {
+    event.preventDefault();
+    console.log(event.target.name.value);
+    const userInput = event.target.name.value;
+    setFilter((filter) => (filter = `?type=${userInput}`));
+    event.target.reset();
+  }
+
+  function handleReload() {
+    setFilter((filter) => (filter = ""));
   }
 
   //returns a set of cards displayimg the information on subsciption
@@ -36,20 +48,29 @@ function SubcriptionCollection() {
       <UserMonth sub={subscriptions} filter={filter} />
       <div className="typesOf">
         <div className="filters">
-          <div className="submitbutton">
-            <label>Search </label>
-            <input placeholder="search..." name="name" onChange={onHandleSearch}></input>
+          <form className="submitbutton" onSubmit={onHandleSubmit}>
+            <input
+              placeholder="search..."
+              name="name"
+              onChange={onHandleSearch}
+            ></input>
             <button type="submit">search</button>
-          </div>
-
+          </form>
+          <button id="all-btn" type="click" onClick={handleReload}>
+            Show All Subscriptions
+          </button>
           <br></br>
-          <label>Subscription type filter: </label>
-          <select onChange={onHandleSelect}>
-            <option value="none">none</option>
-            <option value="streaming">streaming</option>
-            <option value="shopping">shopping</option>
-            <option value="insurance">insurance</option>
-          </select>
+          <div className="select-type">
+            <label>Subscription type filter: </label>
+            <select onChange={onHandleSelect}>
+              <option value="none">none</option>
+              <option value="streaming">streaming</option>
+              <option value="shopping">shopping</option>
+              <option value="insurance">insurance</option>
+              <option value="finance">finance</option>
+              <option value="miscellaneous">miscellaneous</option>
+            </select>
+          </div>
         </div>
       </div>
       <div className="cards">
