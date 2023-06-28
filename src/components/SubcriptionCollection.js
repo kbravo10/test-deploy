@@ -73,15 +73,19 @@ function SubcriptionCollection() {
           </div>
         </div>
       </div>
-      <div className="cards">
-        {subscriptions.map((subscription, index) => {
-          return (
-            <div key={index}>
-              <Subscription key={index} sub={subscription} />
-            </div>
-          );
-        })}
-      </div>
+      {subscriptions.length === 0 ? (
+        <p className="emptyList">You have no Subscriptions here</p>
+      ) : (
+        <div className="cards">
+          {subscriptions.map((subscription, index) => {
+            return (
+              <div key={index}>
+                <Subscription key={index} sub={subscription} />
+              </div>
+            );
+          })}{" "}
+        </div>
+      )}
     </>
   );
 }

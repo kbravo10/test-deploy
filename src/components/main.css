@@ -75,17 +75,17 @@ div.addSub {
   margin-top: 30px;
 }
 
-div.monthly{
+div.monthly {
   display: inline-block;
   font-size: 20px;
   color: whitesmoke;
   background-color: #1d3b58;
   width: 500px;
-  margin-top: 20px ;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
-div.filters{
+div.filters {
   display: flex;
   background-color: #1d3b58;
   width: 1275px;
@@ -95,21 +95,26 @@ div.filters{
   margin-bottom: 50px;
 }
 
-form.submitbutton{
+form.submitbutton {
   margin-top: 10px;
   margin-right: 15px;
   margin-left: 15px;
 }
 
-div.select-type{
+div.select-type {
   margin-top: 10px;
   color: white;
- margin-left: auto;
- margin-right: 15px;
+  margin-left: auto;
+  margin-right: 15px;
 }
 
-button#all-btn{
+button#all-btn {
   margin-top: 10px;
   height: 25px;
   background-color: white;
+}
+
+p.emptyList {
+  font-size: 50px;
+  color: white;
 }
