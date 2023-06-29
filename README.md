@@ -102,3 +102,4 @@ The dropdown slect filter allows the user to select the type of subscription the
 
     <select onChange={onHandleSelect}>
 
+The `<select>` element allows us to give the user `<option>`s and based on selection return the value with an `onChange` event handler. This value is also used to filter out and display the desired subscriptions. 
