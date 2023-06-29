@@ -35,7 +35,6 @@ function SubcriptionCollection() {
     event.target.reset();
   }
 
-
   //function handles the onClick for id allBtn and sets filter to empty
   function handleReload() {
     setFilter((filter) => (filter = ""));
@@ -78,7 +77,7 @@ function SubcriptionCollection() {
                 <Subscription key={index} sub={subscription} />
               </div>
             );
-          })}{" "}
+          })}
         </div>
       )}
     </>
