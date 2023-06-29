@@ -58,9 +58,13 @@ This returns `<NavLink>`'s that assign a path to specific componets. When ever a
 Returns a `<div>` with header `<h2>` with a message to the user.
 
 ### Subscription navlink
-This path naviagates you to the `<SubscriptionCollection />`. This componet imports `<Subscription />` component, `<UserMonth />` component, and the main.css file.
+This path naviagates you to the `<SubscriptionCollection />`. This componet imports `<Subscription />` component, `<UserMonth />` component, the main.css file, and a useState and useEffect library. 
 
-We then declare two useState variables. One state is used to store the data reveived by the fetch request and the other state is used to store and set the state to a filter that is used to tell the fetch request what data we are requesting.
 
+We then declare two `useState hooks`. One state is used to store the data reveived by the fetch request and the other state is used to store and set the state to a filter that is used to tell the fetch request what data we are requesting.
+
+We use a `useEffect` hook to only render the fetch statement when the filter state is modified. For the fetch statement we use a GET request since we want to use the data rsponce and store it into the subscriptions state using `setSubscriptions()`. 
+
+Declare a `function onHandleSelect()` that fires up when the user chooses an option from the dropdown menu of the types of subscriptions. The user choice is retreived by getting the event.target.value. Using the value an if statement  
 
 
