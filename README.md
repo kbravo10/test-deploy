@@ -69,6 +69,8 @@ Declare a `function onHandleSelect()` that fires up when the user chooses an opt
 
 `Function onHandleSubmit()` is a function used to handle a submit button that retrieves the input of a specific name of a subscription. This function then sets the filter state to the value the user inputed. Then the form is reset to empty to prevent the filter being set to incorrect desired value. 
 
-`Function handleReload()` sets the filter state to empty so the fetch request can request all of the data from the server  
+`Function handleReload()` sets the filter state to empty so the fetch request can request all of the data from the server instead of any filteres options the user migth have selected.
+
+The component returns HTML code that is then received by the APP component. 
 
 

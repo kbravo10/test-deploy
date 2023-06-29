@@ -27,7 +27,7 @@ function SubcriptionCollection() {
       );
   }
 
-  //
+  //function handles the submit of a search button and sets Filter state
   function onHandleSubmit(event) {
     event.preventDefault();
     const userInput = event.target.name.value;
@@ -35,6 +35,8 @@ function SubcriptionCollection() {
     event.target.reset();
   }
 
+
+  //function handles the onClick for id allBtn and sets filter to empty
   function handleReload() {
     setFilter((filter) => (filter = ""));
   }
