@@ -1,7 +1,9 @@
 # ZEN SUBCRIPTIONS
+
 This project is to show my skills in the REACT library. This project displays a list of the subscription the user has. The user can either add or remove subscription.
 
 ## Project requirements
+
 - You must make a single page application (only one index.html file) using create-react-app.
 - Your app should use at least 3 components in a way that keeps your code well organized.
 - There should be at least 2 client-side routes using React RouterLinks to an external site.. Be sure to include a nav bar or other UI element that allows users to navigate between routes. Use RESTful routing conventions where applicable
@@ -26,31 +28,29 @@ This project is to show my skills in the REACT library. This project displays a 
     .then(data => addMovie(data)) //THIS STATE UPDATE IS REQUIRED!!!
     // clear form
 
-
 ## Creating project
+
 Created a file in my local repository then ran `create-react-lab` to create create my project to be able to code it using the React library for Javascript.
 
-
 ## Start server
+
 Install `npm install` to begin the project. The resources where you can find all the json data is located in my backend project that is located in my other repository.
 After running my backend project(`http://localhost:3000/subscriptions` for my project purposes) i can start my front end project running `npm start`. A new window in my browser will open up displaying my html code produced by my REACT project.
 
-
 ## Functionality
-### *ALL of the components `import React from "react"`*
 
+### _ALL of the components `import React from "react"`_
 
-### *Page loads*
+### _Page loads_
+
 Once the page loads you are greeted with a text bar to input ur name and a login button to enter the application. This is the first component `<Login />` and uses the input to create a variable with the user input to use in the next step. It also sets a state variable to `true` that tells the sets the condition enter the step.
 
+### _Page loads_
 
-
-### *Page loads*
 Once the page loads you are greeted with a header at top center that displays `Welcome {name}!`. Below the header there is navigation bar that is a component `<NavBar>`.Below that there is a small message that tells the user a simple message on what the app does.
 
+### _`<NavBar>`_
 
-
-### *`<NavBar>`*
 This component `imports NavLink from react-router-dom` and also imports `./main.css` on top of `react`.
 This returns `<NavLink>`'s that assign a path to specific componets. When ever a NavBar option is clicked it will navigate you to that component. It also adds a path to the url making it easier for the user to be able to see what page they are currently on.
 
@@ -60,14 +60,12 @@ This returns `<NavLink>`'s that assign a path to specific componets. When ever a
   - Add Subscription
   - Logout
 
+### _`<Home />`_
 
-
-### *`<Home />`*
 Returns a `<div>` with header `<h2>` with a message to the user.
 
+### _Subscription navlink_
 
-
-### *Subscription navlink*
 This path naviagates you to the `<SubscriptionCollection />`. This componet imports `<Subscription />` component, `<UserMonth />` component, the `main.css` file, and a `useState` and `useEffect` hooks.
 
 We then declare two `useState hooks`. One state is used to store the data reveived by the fetch request and the other state is used to store and set the state to a filter that is used to tell the fetch request what data we are requesting.
@@ -91,26 +89,72 @@ The `<button type=submit>` inside the same form allows the user to submit the na
 
     <button type="submit">search</button>
 
-The way that the program knows how to handle the submit is with an `onSubmit` event listener that tells the program to call `onHandleSubmit` and pass the event that just ocuured. 
+The way that the program knows how to handle the submit is with an `onSubmit` event listener that tells the program to call `onHandleSubmit` and pass the event that just ocuured.
 
 Once the user is done searching and wants to see all of the subscriptions they simply need to click "Show All Subscriptions".
-    
+
     <button id="allBtn" type="click" onClick={handleReload}>
         Show All Subscriptions
     </button>
-This button sets filter state to empty and allows the fetch request to request all data from the server rather than a specific one. 
+
+This button sets filter state to empty and allows the fetch request to request all data from the server rather than a specific one.
 
 The dropdown slect filter allows the user to select the type of subscription they want to view
 
     <select onChange={onHandleSelect}>
 
-The `<select>` element allows us to give the user `<option>`s and based on selection return the value with an `onChange` event handler. This value is also used to filter out and display the desired subscriptions. 
+The `<select>` element allows us to give the user `<option>`s and based on selection return the value with an `onChange` event handler. This value is also used to filter out and display the desired subscriptions.
 
-After `<div className="typesOf">` section, if the user has not choosen any filter we then enter the `<div classname="cards">`. This section of the HTML traverses threw the subscription state(the array that is assigned the data from from the server) and sends a prop to the `<Subscription>` component. 
-If the array is empty, it displays a message 
+After `<div className="typesOf">` section, if the user has not choosen any filter we then enter the `<div classname="cards">`. This section of the HTML traverses threw the subscription state(the array that is assigned the data from from the server) and sends a prop to the `<Subscription>` component.
+If the array is empty, it displays a message
 
     <p className="emptyList">You have no Subscriptions here</p>
 
+### _`<Subscription> componet`_
+
+Import `Link` form `react-router-dom` and imports the `main.css`. This componets calls a `function Subscription` that has prop `sub`. It returns a `<div className="card">` that uses the sub prop to display information. The sub prop itself is an object with keys and each key is assigned to a specific value. It displays name of the subscription `<h3>{sub.type}</h3>` (type means name in this specific sititaion) followed by an image of the logo `<img className="subscriptionImage" alt="oops" src={sub.logo} />`.
+At the bottom of the card it has a link that directs the user to `<SubInfo>`.
+
+    <Link className="link" to={`/subscription/${sub.id}`}>
+        View Subscription
+    </Link>
+
+This component returns a Card to the `<SubscriptionCollection>` component and displays the basic information for the user to be able to determine what subscription they are looking at and may want to click the link to.
+
+### _`<SubInfo>` componet_
+
+This component imports `useHistory` and `useParams` from `react-router-dom`and the `main.css`. We then use one useState hook for subscription, we declare a useHistory variable history, and we declace useParms variable params
+
+    const [subscrption, setSubscription] = useState([]);
+    const history = useHistory();
+    const params = useParams();
+The useHistory hook to be able to push to a desired path inside the web browser. Finally the useParams hook is used to retrieve route parameters from a component with the matching route. 
+A `useEffect` is used to retrieve the desired specific subscription with `params.id`. The response data is the stored into the subscription array by means of `setSubscription(data)`. The effect only renders when params.id is modified or changes. 
+
+`Function onHandleDelete()` handles an event listener when "Remove Subscription" is clicked by the user. It launches a confirm asking the user if they are sure they want to remove the object. If the user clicks okay the statement becomes true and a `DELETE fetch request` is rendered. This request find the subscription with the specific id and removes it from the server and the list of subscriptions. 
+
+    fetch(`http://localhost:3000/subscriptions/${subscrption.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((res) => res.json());
+An `alert` message is then launched telling the user that the item has been removed from the list. 
+If the user clicked cancel then the statement is false and the user gets an alert notifying them that they have decided not to remove the subscription. 
+At the end of the function we use the `useHistory` hook to push the the application to the slected path that we have assigned in this case its "/subscriptions" 
+
+    history.push("/subscription");
+
+The component returns the HTML code to the `<SubscriptionCollection>` component. `<div className="infocard">` that contains an image that displays the logo of the subscription, the name of the subscription, the price of the subscription in USD, and button used with onClick to tell the project that the user wants to remove the subscription from the list. 
+
+    <img id="infoImg" alt="none" src={subscrption.logo} />
+      <h1>{subscrption.type}</h1>
+      <p>Type: {subscrption.subscriptionType}</p>
+      <strong className="price">Price: ${subscrption.price}</strong>
+      <div className="delete">
+        <button onClick={onHandleDelete}>Remove Subscription</button>
+      </div>
 
 
-### *`<Subscription> componet`*
+
+
