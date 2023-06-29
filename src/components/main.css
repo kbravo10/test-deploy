@@ -60,7 +60,7 @@ img#infoImg {
   margin-top: 10px;
 }
 
-form.add-subscription-form {
+form.addSubscriptionForm {
   display: inline-block;
   background-color: white;
   height: 300px;
@@ -101,14 +101,14 @@ form.submitbutton {
   margin-left: 15px;
 }
 
-div.select-type {
+div.selectType {
   margin-top: 10px;
   color: white;
   margin-left: auto;
   margin-right: 15px;
 }
 
-button#all-btn {
+button#allBtn {
   margin-top: 10px;
   height: 25px;
   background-color: white;

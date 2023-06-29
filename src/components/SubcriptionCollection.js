@@ -56,11 +56,11 @@ function SubcriptionCollection() {
             ></input>
             <button type="submit">search</button>
           </form>
-          <button id="all-btn" type="click" onClick={handleReload}>
+          <button id="allBtn" type="click" onClick={handleReload}>
             Show All Subscriptions
           </button>
           <br></br>
-          <div className="select-type">
+          <div className="selectType">
             <label>Subscription type filter: </label>
             <select onChange={onHandleSelect}>
               <option value="none">none</option>

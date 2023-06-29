@@ -26,7 +26,7 @@ function AddSubscription() {
     history.push("/subscription");
   }
   return (
-    <form className="add-subscription-form" onSubmit={onHandleSubmit}>
+    <form className="addSubscriptionForm" onSubmit={onHandleSubmit}>
       <div className="addSub">
         <div className="type">
           <label>Name of Subscription: </label>
@@ -36,7 +36,7 @@ function AddSubscription() {
           <label>Price of Subscription</label>
           <input
             type="number"
-            min="0.00"
+            min="0"
             step="0.01"
             name="price"
             placeholder="ex: 9.99 ..."

@@ -23,14 +23,19 @@ function SubInfo() {
 
   //Delete or cancel the desired subscription removing it from dom
   function onHandleDelete() {
-    fetch(`http://localhost:3000/subscriptions/${subscrption.id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((res) => res.json());
+    const userConfirm = window.confirm(
+      `Are you SURE you want to remove ${subscrption.type} from list?`
+    );
+    if (userConfirm) {
+      fetch(`http://localhost:3000/subscriptions/${subscrption.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((res) => res.json());
 
-    alert(`${subscrption.type} has been CANCELED!`);
+      alert(`${subscrption.type} has been CANCELED!`);
+    } else alert(`You have decided to keep ${subscrption.type}`);
 
     history.push("/subscription");
   }
@@ -41,9 +46,9 @@ function SubInfo() {
       <img id="infoImg" alt="none" src={subscrption.logo} />
       <h1>{subscrption.type}</h1>
       <p>Type: {subscrption.subscriptionType}</p>
-      <strong className="meta">Price: ${subscrption.price}</strong>
+      <strong className="price">Price: ${subscrption.price}</strong>
       <div className="delete">
-        <button onClick={onHandleDelete}>Cancel Subscription</button>
+        <button onClick={onHandleDelete}>Remove Subscription</button>
       </div>
     </div>
   );

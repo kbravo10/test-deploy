@@ -5,7 +5,9 @@ function Login({ onLogin, onGetName }) {
   function handleSubmit(event) {
     const loginForm = Object.fromEntries(new FormData(event.target).entries());
     onLogin(true);
-    onGetName(loginForm.username);
+    if (loginForm.username !== "") {
+      onGetName(loginForm.username);
+    } else onGetName("User");
   }
   return (
     <form className="login" onSubmit={handleSubmit}>
