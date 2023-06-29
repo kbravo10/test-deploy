@@ -46,12 +46,21 @@ Once the page loads you are greeted with a header at top center that displays `W
 
 ### `<NavBar>`
 This component `imports NavLink from react-router-dom` and also imports `./main.css` on top of `react`. 
-The returns `<NavLink>`'s
+This returns `<NavLink>`'s that assign a path to specific componets. When ever a NavBar option is clicked it will navigate you to that component. It also adds a path to the url making it easier for the user to be able to see what page they are currently on. 
+- NavLinks :
+    - Home
+    - Subscription
+    - Add Subscription
+    - Logout
 
 
 ### `<Home />`
 Returns a `<div>` with header `<h2>` with a message to the user.
 
-### Subscription nav
+### Subscription navlink
+This path naviagates you to the `<SubscriptionCollection />`. This componet imports `<Subscription />` component, `<UserMonth />` component, and the main.css file.
+
+We then declare two useState variables. One state is used to store the data reveived by the fetch request and the other state is used to store and set the state to a filter that is used to tell the fetch request what data we are requesting.
+
 
 
