@@ -17,6 +17,8 @@ function SubcriptionCollection() {
       });
   }, [filter]);
 
+
+  //receives the event and sets filter state accordinly based on user input
   function onHandleSelect(event) {
     console.log(event.target.value);
     if (event.target.value === "none") setFilter((filter) => (filter = ""));
@@ -24,10 +26,6 @@ function SubcriptionCollection() {
       setFilter(
         (filter) => (filter = `?subscriptionType=${event.target.value}`)
       );
-  }
-
-  function onHandleSearch(event) {
-    console.log(event.target.value);
   }
 
   function onHandleSubmit(event) {
@@ -52,7 +50,6 @@ function SubcriptionCollection() {
             <input
               placeholder="search..."
               name="name"
-              onChange={onHandleSearch}
             ></input>
             <button type="submit">search</button>
           </form>
