@@ -65,6 +65,10 @@ We then declare two `useState hooks`. One state is used to store the data reveiv
 
 We use a `useEffect` hook to only render the fetch statement when the filter state is modified. For the fetch statement we use a GET request since we want to use the data rsponce and store it into the subscriptions state using `setSubscriptions()`. 
 
-Declare a `function onHandleSelect()` that fires up when the user chooses an option from the dropdown menu of the types of subscriptions. The user choice is retreived by getting the event.target.value. Using the value an if statement  
+Declare a `function onHandleSelect()` that fires up when the user chooses an option from the dropdown menu of the types of subscriptions. The user choice is retreived by getting the event.target.value. Using the value an if statement is used and depending on value the if statement sets the filter state. 
+
+`Function onHandleSubmit()` is a function used to handle a submit button that retrieves the input of a specific name of a subscription. This function then sets the filter state to the value the user inputed. Then the form is reset to empty to prevent the filter being set to incorrect desired value. 
+
+`Function handleReload()` sets the filter state to empty so the fetch request can request all of the data from the server  
 
 

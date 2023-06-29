@@ -17,7 +17,6 @@ function SubcriptionCollection() {
       });
   }, [filter]);
 
-
   //receives the event and sets filter state accordinly based on user input
   function onHandleSelect(event) {
     console.log(event.target.value);
@@ -28,9 +27,9 @@ function SubcriptionCollection() {
       );
   }
 
+  //
   function onHandleSubmit(event) {
     event.preventDefault();
-    console.log(event.target.name.value);
     const userInput = event.target.name.value;
     setFilter((filter) => (filter = `?type=${userInput}`));
     event.target.reset();
@@ -47,10 +46,7 @@ function SubcriptionCollection() {
       <div className="typesOf">
         <div className="filters">
           <form className="submitbutton" onSubmit={onHandleSubmit}>
-            <input
-              placeholder="search..."
-              name="name"
-            ></input>
+            <input placeholder="search..." name="name"></input>
             <button type="submit">search</button>
           </form>
           <button id="allBtn" type="click" onClick={handleReload}>
