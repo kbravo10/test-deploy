@@ -167,6 +167,9 @@ The component returns the HTML code to the `<SubscriptionCollection>` component.
         <button type="submit">submit</button>
     </form>
 This form is submited and the users new price is passed to `function onHandlePriceChange()`. The function then calls a PATCH request to modify the servers value for the specific object. 
+
+
+
 ### _`<UserMonth>` component_
 
 This componets uses a callback function that takes two props {sub, filter}.
@@ -230,3 +233,21 @@ Imports useHistory from react-router-dom.
 ## Contributions
 
 Pull request are appreciated. Any feed back on improving the project(do's and dont's).
+
+## CITATIONS
+### Netflix
+logo image: 
+- About netflix company assets. (n.d.). https://about.netflix.com/en/company-assets 
+
+### Hulu
+hulu image:
+- Stream TV and movies live and online. Hulu. (n.d.). https://www.hulu.com/welcome?orig_referrer=https%3A%2F%2Fwww.google.com%2F 
+
+### Amazon
+amazon image
+- Wikimedia Foundation. (n.d.). File:Amazon Logo.svg. Wikipedia. https://en.wikipedia.org/wiki/File:Amazon_logo.svg 
+
+
+### Fetch
+fetch pet insurance
+- Google. (n.d.). Fetch pet insurance - apps on Google Play. Google. https://play.google.com/store/apps/details?id=com.gopetplan.petplanclaims&amp;hl=en_US&amp;pli=1 
