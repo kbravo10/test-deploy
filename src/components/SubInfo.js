@@ -43,8 +43,21 @@ function SubInfo() {
     history.push("/subscription");
   }
 
-  function onEdgitPrice() {setUserEdit(true)}
-
+  function onHandlePriceChange(event) {
+    event.preventDefault();
+    console.log(event.target.newPrice.value);
+    fetch(`http://localhost:3000/subscriptions/${params.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        price: event.target.newPrice.value,
+      }),
+    }).then((res) => res.json());
+    alert(`Price for ${subscrption.type} has been changed to ${event.target.newPrice.value}`)
+    history.push('/subscription')
+  }
   // return subscription information
   return (
     <>
@@ -55,14 +68,18 @@ function SubInfo() {
         <strong className="price">Price: ${subscrption.price}</strong>
         <div className="delete">
           <button onClick={onHandleDelete}>Remove Subscription</button>
-          <button onClick={onEdgitPrice}>Edit Price</button>
+          <button onClick={() => setUserEdit(true)}>Edit Price</button>
         </div>
       </div>
-      {userEdit? 
-      <form>
-        <label>New price: </label>
-        <input type="text"></input>
-      </form> : <></>}
+      {userEdit ? (
+        <form onSubmit={onHandlePriceChange}>
+          <label>New price: </label>
+          <input type="number" min="0" step="0.01" name="newPrice"></input>
+          <button type="submit">submit</button>
+        </form>
+      ) : (
+        <></>
+      )}
     </>
   );
 }
