@@ -58,7 +58,6 @@ This returns `<NavLink>`'s that assign a path to specific componets. When ever a
   - Home
   - Subscription
   - Add Subscription
-  - Logout
 
 ### _`<Home />`_
 
@@ -223,12 +222,6 @@ This component returns HTML code with the `<form classname=addSubscriptionForm>`
 
     <div className="submit"> displays a button that allows the user to submit the form and the project will sent the event to the function onHandleSubmit().
 
-### _`<Logout>` component_
-
-Imports useHistory from react-router-dom.
-`Function Logout` takes one prop {onLogin}. Its calls the prop and sets the parameter to false. It assigns logout to the useHistory hook. It uses logout to push path to the desired path.
-
-    logout.push("/")
 
 ## Contributions
 
