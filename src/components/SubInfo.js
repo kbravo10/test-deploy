@@ -3,7 +3,7 @@ import {
   useHistory,
   useParams,
 } from "react-router-dom/cjs/react-router-dom.min";
-import "./main.css";
+import "../css/main.css";
 
 function SubInfo() {
   //state that holds and sets the data from the fetch request to backend project

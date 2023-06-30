@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import "./main.css";
+import "../css/main.css";
 
 //returns card information based on object passed by prop
 function Subscription({ sub }) {

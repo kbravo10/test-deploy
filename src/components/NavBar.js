@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./main.css";
+import "../css/main.css";
 
 //returns a navagatioin bar with links to the desired path
 function NavBar({onLogin}) {

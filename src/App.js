@@ -7,7 +7,7 @@ import NavBar from "./components/NavBar";
 import SubInfo from "./components/SubInfo";
 import AddSubscription from "./components/AddSubscription";
 import Login from "./components/Login";
-import "./components/main.css";
+import "./css/main.css";
 
 
 function App() {

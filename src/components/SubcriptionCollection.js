@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Subscription from "./Subscription";
-import "./main.css";
+import "../css/main.css";
 import UserMonth from "./UserMonth";
 
 function SubcriptionCollection() {

@@ -1,5 +1,5 @@
 import React from "react";
-import "./main.css"
+import "../css/main.css"
 
 //returns the header displaying a message at the top of the page
 function Home() {

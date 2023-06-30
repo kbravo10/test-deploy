@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import "./main.css";
+import "../css/main.css";
 
 function AddSubscription() {
   //declares useHistory and assigns it to a const
