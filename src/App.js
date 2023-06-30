@@ -7,7 +7,6 @@ import NavBar from "./components/NavBar";
 import SubInfo from "./components/SubInfo";
 import AddSubscription from "./components/AddSubscription";
 import Login from "./components/Login";
-import Logout from "./components/Logout";
 import "./components/main.css";
 
 
@@ -49,9 +48,9 @@ function App() {
         <Route exact path="/add-sunscription">
           <AddSubscription />
         </Route>
-        <Route to="/logout">
+        {/* <Route to="/logout">
           <Logout  />
-        </Route>
+        </Route> */}
       </Switch>
     </div>
   );

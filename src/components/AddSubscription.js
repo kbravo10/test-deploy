@@ -14,6 +14,9 @@ function AddSubscription() {
     event.preventDefault();
     const submitForm = Object.fromEntries(new FormData(event.target).entries());
     if (submitForm.type !== "" && submitForm.price !== "") {
+      if (submitForm.subscriptionType === "") {
+        submitForm.subscriptionType = "miscellaneous";
+      }
       submitForm.price = parseFloat(submitForm.price);
       fetch(`http://localhost:3000/subscriptions`, {
         method: "POST",
@@ -53,7 +56,10 @@ function AddSubscription() {
           ></input>
         </div>
         <div className="user-eneter-type">
-          <label>Enter the type of subscription: </label>
+          <label>
+            Enter the type of subscription "if nothing selected default
+            miscellaneous":{" "}
+          </label>
           <select name="subscriptionType">
             <option value=""></option>
             <option value="streaming">streaming</option>

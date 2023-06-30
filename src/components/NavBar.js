@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./main.css";
 
+//returns a navagatioin bar with links to the desired path
 function NavBar({onLogin}) {
   return (
     <div className="navbar">
@@ -14,7 +15,7 @@ function NavBar({onLogin}) {
       <NavLink to="/add-sunscription" className="navlink">
         Add Subscription
       </NavLink>
-      <NavLink to="/logout" className="navlink" onClick={() => onLogin(false)}>
+      <NavLink to="/" className="navlink" onClick={() => onLogin(false)}>
         Logout
       </NavLink>
     </div>

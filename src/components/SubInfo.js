@@ -40,7 +40,8 @@ function SubInfo() {
 
     history.push("/subscription");
   }
-
+  //fires when user selcts change price button
+  //takes the users new prive and requests a patch to modify object in the server
   function onHandlePriceChange(event) {
     event.preventDefault();
     console.log(event.target.newPrice.value);
@@ -59,6 +60,7 @@ function SubInfo() {
     setUserEdit(false);
     history.push("/subscription");
   }
+
   // return subscription information
   return (
     <>
