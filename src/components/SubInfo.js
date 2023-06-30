@@ -13,6 +13,9 @@ function SubInfo() {
   const history = useHistory();
   const params = useParams();
 
+  const [newPrice, setNewPrice] = useState(0);
+  const [userEdit, setUserEdit] = useState(false);
+
   //use fetch method to aquire the data
   //useEffect to only render once to prevent loop or multiple renders
   useEffect(() => {
@@ -40,17 +43,27 @@ function SubInfo() {
     history.push("/subscription");
   }
 
+  function onEdgitPrice() {setUserEdit(true)}
+
   // return subscription information
   return (
-    <div className="infocard">
-      <img id="infoImg" alt="none" src={subscrption.logo} />
-      <h1>{subscrption.type}</h1>
-      <p>Type: {subscrption.subscriptionType}</p>
-      <strong className="price">Price: ${subscrption.price}</strong>
-      <div className="delete">
-        <button onClick={onHandleDelete}>Remove Subscription</button>
+    <>
+      <div className="infocard">
+        <img id="infoImg" alt="none" src={subscrption.logo} />
+        <h1>{subscrption.type}</h1>
+        <p>Type: {subscrption.subscriptionType}</p>
+        <strong className="price">Price: ${subscrption.price}</strong>
+        <div className="delete">
+          <button onClick={onHandleDelete}>Remove Subscription</button>
+          <button onClick={onEdgitPrice}>Edit Price</button>
+        </div>
       </div>
-    </div>
+      {userEdit? 
+      <form>
+        <label>New price: </label>
+        <input type="text"></input>
+      </form> : <></>}
+    </>
   );
 }
 

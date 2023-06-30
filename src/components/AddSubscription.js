@@ -5,7 +5,9 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import "./main.css";
 
 function AddSubscription() {
+  //declares useHistory and assigns it to a const
   const history = useHistory();
+
   //handle the submit button and convert form into an object
   //insets information into backend db.json project and displays in DOM
   function onHandleSubmit(event) {

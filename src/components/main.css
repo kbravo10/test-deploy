@@ -10,8 +10,28 @@ form.login {
 
 span.projectName {
   color: white;
-  font-size: 170px;
-  background: linear-gradient(#528aae, rgba(128, 0, 128, 0.377),rgba(255, 0, 0, 0.493), rgba(255, 255, 255, 0.548), rgba(255, 0, 0, 0.493), rgba(128, 0, 128, 0.377), #528aae);
+  font-size: 125px;
+  background: linear-gradient(
+    #528aae,
+    #32556bb0,
+    rgba(111, 4, 235, 0.466),
+    rgba(134, 4, 185, 0.623),
+    rgba(255, 255, 255, 0.548),
+    rgba(134, 4, 185, 0.623),
+    rgba(111, 4, 235, 0.466),
+    #32556bb0,
+    #528aae
+  );
+  animation: fadeIn 10s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .navlink {
@@ -58,7 +78,18 @@ div.infocard {
   background-color: aliceblue;
   font-size: 20px;
   border: 20px solid black;
+  animation: grow 3s;
 }
+
+@keyframes grow {
+  from {
+    scale: 0;
+  }
+  to {
+    scale: 1;
+  }
+}
+
 img#infoImg {
   width: 400px;
   height: 200px;

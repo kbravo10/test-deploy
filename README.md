@@ -1,4 +1,4 @@
-# ZEN SUBCRIPTIONS
+# ZEN SUBSCRIPTIONS
 
 This project is to show my skills in the REACT library. This project displays a list of the subscription the user has. The user can either add or remove subscription.
 
@@ -154,6 +154,73 @@ The component returns the HTML code to the `<SubscriptionCollection>` component.
       <div className="delete">
         <button onClick={onHandleDelete}>Remove Subscription</button>
       </div>
+
+
+
+### _`<UserMonth>` component_
+This componets uses a callback function that takes two props {sub, filter}. 
+A forEach method is called to get sum of all the prices. 
+
+    let sum = 0;
+    sub.forEach((element) => {
+    sum += element.price;
+    });
+
+`Function newFilter` takes the filter prop and returns a substring that corresponds to the value of whatever filter the user selected. 
+
+    function newFilter() {
+    const newText = filter.split("=")[1].toUpperCase();
+    return newText;
+  }
+
+This componet returns HTML code. It displays a message with the specific filter that the user has choosen. It also returns the total price of that filter objects. 
+
+    <p>
+        Total spent per month on {filter === "" ? "ALL" : newFilter()}{" "}
+        subsciption(s)
+    </p>
+    <p>{totalInDollars.format(sum)}</p>
+
+
+
+### _`<AddSubscription>` component_
+Imports useHistory and main.css. 
+Assigns const history to `useHistory()`. 
+`Function onHandleSubmit()` assigns a variable to an object created by the users input in the `<form>`. A user validation checks if the user enetered the minimum requirements to submit the form. If the requirements are met then a `POST` fetch request is sent to server in order to add data to the server. 
+
+    fetch(`http://localhost:3000/subscriptions`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(submitForm),
+      }).then((res) => res.json());
+An alert pops up informing the user that the form and the onject has been added to the list of there subscription, this also adds it directly to the backend project. If the requirements are not met then the user gets an alert statinmg that the information is invalid and will not added to any list or server. We then `history.push("/subscription")` to send the application to the desired path of the web page. 
+This component returns HTML code with the `<form classname=addSubscriptionForm>`. 
+
+    <div className="type"> prompts the user to input the name of the subscription. 
+
+    <div className="price"> prompts the user to input the price of the subscription
+
+    <div className="logo"> prompts the user to enter an image address for the subscription
+
+    <div className="user-eneter-type"> uses a dropdown select to allow the user to choose the subscription type.
+
+    <div className="submit"> displays a button that allows the user to submit the form and the project will sent the event to the function onHandleSubmit().
+
+
+
+### _`<Logout>` component_
+Imports useHistory from react-router-dom.
+`Function Logout` takes one prop {onLogin}. Its calls the prop and sets the parameter to false. It assigns logout to the useHistory hook. It uses logout to push path to the desired path.
+
+    logout.push("/")
+
+
+
+## Contributions
+Pull request are appreciated. Any feed back on improving the project(do's and dont's).
+
 
 
 

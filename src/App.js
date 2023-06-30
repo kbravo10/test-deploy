@@ -10,6 +10,7 @@ import Login from "./components/Login";
 import Logout from "./components/Logout";
 import "./components/main.css";
 
+
 function App() {
   //set a is logged in state to check if im logged in and display correct page
   //set name from login page and display at top for the welcome

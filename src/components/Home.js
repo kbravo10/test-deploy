@@ -6,7 +6,7 @@ function Home() {
   return (
     <div>
       <h2>View all your subscriptions here!</h2>
-      <span className="projectName">ZENscription's</span>
+      <span className="projectName">ZEN Subscription's</span>
     </div>
   );
 }

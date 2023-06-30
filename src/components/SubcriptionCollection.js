@@ -73,7 +73,7 @@ function SubcriptionCollection() {
         <div className="cards">
           {subscriptions.map((subscription, index) => {
             return (
-              <div key={index}>
+              <div key={index} className="displayCard">
                 <Subscription key={index} sub={subscription} />
               </div>
             );
