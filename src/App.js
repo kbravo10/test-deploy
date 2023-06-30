@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="App">
       <h1>Welcome {name}!</h1>
-      <NavBar />
+      <NavBar onLogin={handleLogout}/>
       <Switch>
         <Route exact path="/">
           <Home />
@@ -50,7 +50,7 @@ function App() {
           <AddSubscription />
         </Route>
         <Route to="/logout">
-          <Logout onLogin={handleLogout} />
+          <Logout  />
         </Route>
       </Switch>
     </div>

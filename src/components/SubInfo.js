@@ -12,8 +12,6 @@ function SubInfo() {
   const [subscrption, setSubscription] = useState([]);
   const history = useHistory();
   const params = useParams();
-
-  const [newPrice, setNewPrice] = useState(0);
   const [userEdit, setUserEdit] = useState(false);
 
   //use fetch method to aquire the data
@@ -52,11 +50,14 @@ function SubInfo() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        price: event.target.newPrice.value,
+        price: parseFloat(event.target.newPrice.value),
       }),
     }).then((res) => res.json());
-    alert(`Price for ${subscrption.type} has been changed to ${event.target.newPrice.value}`)
-    history.push('/subscription')
+    alert(
+      `Price for ${subscrption.type} has been changed to ${event.target.newPrice.value}`
+    );
+    setUserEdit(false);
+    history.push("/subscription");
   }
   // return subscription information
   return (
@@ -72,7 +73,7 @@ function SubInfo() {
         </div>
       </div>
       {userEdit ? (
-        <form onSubmit={onHandlePriceChange}>
+        <form className="priceEditBtn" onSubmit={onHandlePriceChange}>
           <label>New price: </label>
           <input type="number" min="0" step="0.01" name="newPrice"></input>
           <button type="submit">submit</button>

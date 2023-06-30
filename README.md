@@ -128,10 +128,11 @@ This component imports `useHistory` and `useParams` from `react-router-dom`and t
     const [subscrption, setSubscription] = useState([]);
     const history = useHistory();
     const params = useParams();
-The useHistory hook to be able to push to a desired path inside the web browser. Finally the useParams hook is used to retrieve route parameters from a component with the matching route. 
-A `useEffect` is used to retrieve the desired specific subscription with `params.id`. The response data is the stored into the subscription array by means of `setSubscription(data)`. The effect only renders when params.id is modified or changes. 
 
-`Function onHandleDelete()` handles an event listener when "Remove Subscription" is clicked by the user. It launches a confirm asking the user if they are sure they want to remove the object. If the user clicks okay the statement becomes true and a `DELETE fetch request` is rendered. This request find the subscription with the specific id and removes it from the server and the list of subscriptions. 
+The useHistory hook to be able to push to a desired path inside the web browser. Finally the useParams hook is used to retrieve route parameters from a component with the matching route.
+A `useEffect` is used to retrieve the desired specific subscription with `params.id`. The response data is the stored into the subscription array by means of `setSubscription(data)`. The effect only renders when params.id is modified or changes.
+
+`Function onHandleDelete()` handles an event listener when "Remove Subscription" is clicked by the user. It launches a confirm asking the user if they are sure they want to remove the object. If the user clicks okay the statement becomes true and a `DELETE fetch request` is rendered. This request find the subscription with the specific id and removes it from the server and the list of subscriptions.
 
     fetch(`http://localhost:3000/subscriptions/${subscrption.id}`, {
         method: "DELETE",
@@ -139,13 +140,14 @@ A `useEffect` is used to retrieve the desired specific subscription with `params
           "Content-Type": "application/json",
         },
       }).then((res) => res.json());
-An `alert` message is then launched telling the user that the item has been removed from the list. 
-If the user clicked cancel then the statement is false and the user gets an alert notifying them that they have decided not to remove the subscription. 
-At the end of the function we use the `useHistory` hook to push the the application to the slected path that we have assigned in this case its "/subscriptions" 
+
+An `alert` message is then launched telling the user that the item has been removed from the list.
+If the user clicked cancel then the statement is false and the user gets an alert notifying them that they have decided not to remove the subscription.
+At the end of the function we use the `useHistory` hook to push the the application to the slected path that we have assigned in this case its "/subscriptions"
 
     history.push("/subscription");
 
-The component returns the HTML code to the `<SubscriptionCollection>` component. `<div className="infocard">` that contains an image that displays the logo of the subscription, the name of the subscription, the price of the subscription in USD, and button used with onClick to tell the project that the user wants to remove the subscription from the list. 
+The component returns the HTML code to the `<SubscriptionCollection>` component. `<div className="infocard">` that contains an image that displays the logo of the subscription, the name of the subscription, the price of the subscription in USD, and button used with onClick to tell the project that the user wants to remove the subscription from the list.
 
     <img id="infoImg" alt="none" src={subscrption.logo} />
       <h1>{subscrption.type}</h1>
@@ -155,25 +157,35 @@ The component returns the HTML code to the `<SubscriptionCollection>` component.
         <button onClick={onHandleDelete}>Remove Subscription</button>
       </div>
 
+`<button onClick={() => setUserEdit(true)}>Edit Price</button>` is a button that allows the user to change the price instead of having to create an entire new subscription.
 
+`<form className="priceEditBtn">` takes the users new price
 
+    <form className="priceEditBtn" onSubmit={onHandlePriceChange}>
+        <label>New price: </label>
+        <input type="number" min="0" step="0.01" name="newPrice"></input>
+        <button type="submit">submit</button>
+    </form>
+This form is submited and the users new price is passed to `function onHandlePriceChange()`. The function then calls a PATCH request to modify the servers value for the specific object. 
 ### _`<UserMonth>` component_
-This componets uses a callback function that takes two props {sub, filter}. 
-A forEach method is called to get sum of all the prices. 
+
+This componets uses a callback function that takes two props {sub, filter}.
+A forEach method is called to get sum of all the prices.
 
     let sum = 0;
     sub.forEach((element) => {
     sum += element.price;
     });
 
-`Function newFilter` takes the filter prop and returns a substring that corresponds to the value of whatever filter the user selected. 
+`Function newFilter` takes the filter prop and returns a substring that corresponds to the value of whatever filter the user selected.
 
     function newFilter() {
     const newText = filter.split("=")[1].toUpperCase();
     return newText;
-  }
 
-This componet returns HTML code. It displays a message with the specific filter that the user has choosen. It also returns the total price of that filter objects. 
+}
+
+This componet returns HTML code. It displays a message with the specific filter that the user has choosen. It also returns the total price of that filter objects.
 
     <p>
         Total spent per month on {filter === "" ? "ALL" : newFilter()}{" "}
@@ -181,12 +193,11 @@ This componet returns HTML code. It displays a message with the specific filter 
     </p>
     <p>{totalInDollars.format(sum)}</p>
 
-
-
 ### _`<AddSubscription>` component_
-Imports useHistory and main.css. 
-Assigns const history to `useHistory()`. 
-`Function onHandleSubmit()` assigns a variable to an object created by the users input in the `<form>`. A user validation checks if the user enetered the minimum requirements to submit the form. If the requirements are met then a `POST` fetch request is sent to server in order to add data to the server. 
+
+Imports useHistory and main.css.
+Assigns const history to `useHistory()`.
+`Function onHandleSubmit()` assigns a variable to an object created by the users input in the `<form>`. A user validation checks if the user enetered the minimum requirements to submit the form. If the requirements are met then a `POST` fetch request is sent to server in order to add data to the server.
 
     fetch(`http://localhost:3000/subscriptions`, {
         method: "POST",
@@ -195,10 +206,11 @@ Assigns const history to `useHistory()`.
         },
         body: JSON.stringify(submitForm),
       }).then((res) => res.json());
-An alert pops up informing the user that the form and the onject has been added to the list of there subscription, this also adds it directly to the backend project. If the requirements are not met then the user gets an alert statinmg that the information is invalid and will not added to any list or server. We then `history.push("/subscription")` to send the application to the desired path of the web page. 
-This component returns HTML code with the `<form classname=addSubscriptionForm>`. 
 
-    <div className="type"> prompts the user to input the name of the subscription. 
+An alert pops up informing the user that the form and the onject has been added to the list of there subscription, this also adds it directly to the backend project. If the requirements are not met then the user gets an alert statinmg that the information is invalid and will not added to any list or server. We then `history.push("/subscription")` to send the application to the desired path of the web page.
+This component returns HTML code with the `<form classname=addSubscriptionForm>`.
+
+    <div className="type"> prompts the user to input the name of the subscription.
 
     <div className="price"> prompts the user to input the price of the subscription
 
@@ -208,20 +220,13 @@ This component returns HTML code with the `<form classname=addSubscriptionForm>`
 
     <div className="submit"> displays a button that allows the user to submit the form and the project will sent the event to the function onHandleSubmit().
 
-
-
 ### _`<Logout>` component_
+
 Imports useHistory from react-router-dom.
 `Function Logout` takes one prop {onLogin}. Its calls the prop and sets the parameter to false. It assigns logout to the useHistory hook. It uses logout to push path to the desired path.
 
     logout.push("/")
 
-
-
 ## Contributions
+
 Pull request are appreciated. Any feed back on improving the project(do's and dont's).
-
-
-
-
-

@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./main.css";
 
-function NavBar() {
+function NavBar({onLogin}) {
   return (
     <div className="navbar">
       <NavLink to="/" exact className="navlink">
@@ -14,7 +14,7 @@ function NavBar() {
       <NavLink to="/add-sunscription" className="navlink">
         Add Subscription
       </NavLink>
-      <NavLink to="/logout" className="navlink">
+      <NavLink to="/logout" className="navlink" onClick={() => onLogin(false)}>
         Logout
       </NavLink>
     </div>

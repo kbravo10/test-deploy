@@ -60,6 +60,15 @@ div.card {
   height: 275px;
   font-size: 20px;
   background-color: aliceblue;
+  animation: spin 2.5s;
+}
+@keyframes spin{
+  0%{
+    transform: rotateY(180deg);
+  }
+  100%{
+    transform: rotateY(360deg);
+  }
 }
 
 div.cards {
@@ -78,6 +87,18 @@ div.infocard {
   background-color: aliceblue;
   font-size: 20px;
   border: 20px solid black;
+  animation: grow 2s;
+}
+
+form.priceEditBtn {
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #1d3b58;
+  color: white;
+  width: 200px;
+  height: 75px;
   animation: grow 3s;
 }
 

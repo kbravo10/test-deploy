@@ -19,7 +19,6 @@ function SubcriptionCollection() {
 
   //receives the event and sets filter state accordinly based on user input
   function onHandleSelect(event) {
-    console.log(event.target.value);
     if (event.target.value === "none") setFilter((filter) => (filter = ""));
     else
       setFilter(
