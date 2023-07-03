@@ -18,7 +18,7 @@ function AddSubscription() {
         submitForm.subscriptionType = "miscellaneous";
       }
       submitForm.price = parseFloat(submitForm.price);
-      fetch(`http://localhost:3000/subscriptions`, {
+      fetch(`https://flatiron-phase-2-backend-project.onrender.com/subscriptions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
